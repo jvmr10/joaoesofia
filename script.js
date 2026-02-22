@@ -119,21 +119,30 @@ function updateDisplay() {
         video.controls = true; 
         video.autoplay = true; 
         
-        // --- Lógica de Volume (Audio Ducking) ---
+        // A MÁGICA PARA O CELULAR: Impede que abra em tela cheia automaticamente
+        video.playsInline = true; 
+        video.setAttribute('playsinline', ''); 
         
-        // Quando o vídeo der Play, abaixa a música
+        // --- Lógica de Volume Melhorada ---
+        
         video.addEventListener('play', () => {
             bgMusic.volume = volumeBaixo;
         });
         
-        // Quando o vídeo for Pausado, volta a música ao normal
         video.addEventListener('pause', () => {
             bgMusic.volume = volumeNormal;
+            // Se o sistema do celular pausou a música à força, manda tocar de novo
+            if (bgMusic.paused) {
+                bgMusic.play();
+            }
         });
         
-        // Quando o vídeo Acabar, volta a música ao normal
         video.addEventListener('ended', () => {
             bgMusic.volume = volumeNormal;
+            // Se o sistema do celular pausou a música à força, manda tocar de novo
+            if (bgMusic.paused) {
+                bgMusic.play();
+            }
         });
         
         mediaDisplay.appendChild(video);
