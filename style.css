@@ -1,0 +1,69 @@
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.gallery-container {
+    max-width: 800px;
+    width: 90%;
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+img, video {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d62828;
+}
+
+#caption {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Efeito de transição suave para as mídias e legendas */
+#media-display, #caption {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 1; /* Totalmente visível por padrão */
+}
+
+/* Efeito para o botão de início */
+#start-btn {
+    transition: opacity 0.5s ease;
+}
+
+/* Classe que o JavaScript vai adicionar para "apagar" a tela */
+.fade-out {
+    opacity: 0 !important; 
+}
